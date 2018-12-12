@@ -28203,7 +28203,19 @@ var OrbitControls = function ( object, domElement ) {
 		//scope.dispatchEvent( { type: 'dispose' } ); // should this be added here?
 
 	};
+	
+	this.active = function() {
 
+		scope.domElement.addEventListener( 'contextmenu', onContextMenu, false );
+		scope.domElement.addEventListener( 'mousedown', onMouseDown, false );
+		scope.domElement.addEventListener( 'wheel', onMouseWheel, false );
+
+		scope.domElement.addEventListener( 'touchstart', onTouchStart, false );
+		scope.domElement.addEventListener( 'touchend', onTouchEnd, false );
+		scope.domElement.addEventListener( 'touchmove', onTouchMove, false );
+
+		window.addEventListener( 'keydown', onKeyDown, false );
+	}
 	//
 	// internals
 	//
