@@ -253,6 +253,7 @@ var OrbitControls = function (object, domElement) {
 	this.touchStart = onTouchStart; // 手指触摸开始
 	this.touchMove = onTouchMove;   // 手指触摸移动
 	this.touchEnd = onTouchEnd;     // 手指触摸结束
+	this.keyDown = onKeyDown;       // 按键事件
 
 	this.releaseMouse = onMouseUp;  // 释放鼠标，用于修复鼠标移动出界后的bug
 	this.active = function () {
