@@ -244,7 +244,7 @@ var OrbitControls = function (object, domElement) {
 	// >>>-------------------------------------------------------------------------------------------
 	// 此处为增加的代码
 
-	this.isActive = false;          // 如果当前控件为主动触发事件那么标记为活跃的，如果是被动触发事件则为不活跃
+	this.isActive = true;           // 如果当前控件为主动触发事件那么标记为活跃的，如果是被动触发事件则为不活跃
 	this.mouseDown = onMouseDown;   // 鼠标按下
 	this.mouseMove = onMouseMove;   // 鼠标移动
 	this.mouseUp = onMouseUp;       // 鼠标弹起
