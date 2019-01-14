@@ -118302,7 +118302,7 @@ function WebXRManager( renderer ) {
 
 function WebGLRenderer( parameters ) {
 
-	console.log( 'WebGLRenderer', REVISION );
+	// console.log( 'WebGLRenderer', REVISION );
 
 	parameters = parameters || {};
 
