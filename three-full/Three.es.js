@@ -10169,7 +10169,7 @@ SphereBufferGeometry.prototype.constructor = SphereBufferGeometry;
 // WARNING: This file was auto-generated, any change will be overridden in next release. Please use configs/es6.conf.js then run "npm run convert". //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var REVISION = '96';
+var REVISION = '100';
 var MOUSE = { LEFT: 0, MIDDLE: 1, RIGHT: 2 };
 var CullFaceNone = 0;
 var CullFaceBack = 1;
@@ -28232,7 +28232,7 @@ var OrbitControls = function (object, domElement) {
 		document.removeEventListener('mouseup', onMouseUp, false);
 
 		window.addEventListener('keydown', onKeyDown, false);
-	}
+	};
 
 	// <<<-------------------------------------------------------------------------------------------
 
@@ -28517,12 +28517,6 @@ var OrbitControls = function (object, domElement) {
 
 	}
 
-	function handleMouseUp(event) {
-
-		// console.log( 'handleMouseUp' );
-
-	}
-
 	function handleMouseWheel(event) {
 
 		// console.log( 'handleMouseWheel' );
@@ -28665,19 +28659,13 @@ var OrbitControls = function (object, domElement) {
 
 	}
 
-	function handleTouchEnd(event) {
-
-		//console.log( 'handleTouchEnd' );
-
-	}
-
 	//
 	// event handlers - FSM: listen for events and reset state
 	//
 
 	function onMouseDown(event) {
 
-		if (scope.enabled === false) return;
+		if (scope.enabled === false) { return; }
 
 		event.preventDefault();
 
@@ -28687,7 +28675,7 @@ var OrbitControls = function (object, domElement) {
 
 				if (event.ctrlKey || event.metaKey) {
 
-					if (scope.enablePan === false) return;
+					if (scope.enablePan === false) { return; }
 
 					handleMouseDownPan(event);
 
@@ -28695,7 +28683,7 @@ var OrbitControls = function (object, domElement) {
 
 				} else {
 
-					if (scope.enableRotate === false) return;
+					if (scope.enableRotate === false) { return; }
 
 					handleMouseDownRotate(event);
 
@@ -28707,7 +28695,7 @@ var OrbitControls = function (object, domElement) {
 
 			case scope.mouseButtons.MIDDLE:
 
-				if (scope.enableZoom === false) return;
+				if (scope.enableZoom === false) { return; }
 
 				handleMouseDownDolly(event);
 
@@ -28717,7 +28705,7 @@ var OrbitControls = function (object, domElement) {
 
 			case scope.mouseButtons.RIGHT:
 
-				if (scope.enablePan === false) return;
+				if (scope.enablePan === false) { return; }
 
 				handleMouseDownPan(event);
 
@@ -28744,7 +28732,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onMouseMove(event) {
 
-		if (scope.enabled === false) return;
+		if (scope.enabled === false) { return; }
 
 		event.preventDefault();
 
@@ -28752,7 +28740,7 @@ var OrbitControls = function (object, domElement) {
 
 			case STATE.ROTATE:
 
-				if (scope.enableRotate === false) return;
+				if (scope.enableRotate === false) { return; }
 
 				handleMouseMoveRotate(event);
 
@@ -28760,7 +28748,7 @@ var OrbitControls = function (object, domElement) {
 
 			case STATE.DOLLY:
 
-				if (scope.enableZoom === false) return;
+				if (scope.enableZoom === false) { return; }
 
 				handleMouseMoveDolly(event);
 
@@ -28768,7 +28756,7 @@ var OrbitControls = function (object, domElement) {
 
 			case STATE.PAN:
 
-				if (scope.enablePan === false) return;
+				if (scope.enablePan === false) { return; }
 
 				handleMouseMovePan(event);
 
@@ -28783,9 +28771,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onMouseUp(event) {
 
-		if (scope.enabled === false) return;
-
-		handleMouseUp(event);
+		if (scope.enabled === false) { return; }
 
 		document.removeEventListener('mousemove', onMouseMove, false);
 		document.removeEventListener('mouseup', onMouseUp, false);
@@ -28803,7 +28789,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onMouseWheel(event) {
 
-		if (scope.enabled === false || scope.enableZoom === false || (state !== STATE.NONE && state !== STATE.ROTATE)) return;
+		if (scope.enabled === false || scope.enableZoom === false || (state !== STATE.NONE && state !== STATE.ROTATE)) { return; }
 
 		event.preventDefault();
 		event.stopPropagation();
@@ -28824,7 +28810,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onKeyDown(event) {
 
-		if (scope.enabled === false || scope.enableKeys === false || scope.enablePan === false) return;
+		if (scope.enabled === false || scope.enableKeys === false || scope.enablePan === false) { return; }
 
 		handleKeyDown(event);
 
@@ -28832,7 +28818,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onTouchStart(event) {
 
-		if (scope.enabled === false) return;
+		if (scope.enabled === false) { return; }
 
 		event.preventDefault();
 
@@ -28840,7 +28826,7 @@ var OrbitControls = function (object, domElement) {
 
 			case 1:	// one-fingered touch: rotate
 
-				if (scope.enableRotate === false) return;
+				if (scope.enableRotate === false) { return; }
 
 				handleTouchStartRotate(event);
 
@@ -28850,7 +28836,7 @@ var OrbitControls = function (object, domElement) {
 
 			case 2:	// two-fingered touch: dolly-pan
 
-				if (scope.enableZoom === false && scope.enablePan === false) return;
+				if (scope.enableZoom === false && scope.enablePan === false) { return; }
 
 				handleTouchStartDollyPan(event);
 
@@ -28879,7 +28865,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onTouchMove(event) {
 
-		if (scope.enabled === false) return;
+		if (scope.enabled === false) { return; }
 
 		event.preventDefault();
 		event.stopPropagation();
@@ -28888,8 +28874,8 @@ var OrbitControls = function (object, domElement) {
 
 			case 1: // one-fingered touch: rotate
 
-				if (scope.enableRotate === false) return;
-				if (state !== STATE.TOUCH_ROTATE) return; // is this needed?
+				if (scope.enableRotate === false) { return; }
+				if (state !== STATE.TOUCH_ROTATE) { return; } // is this needed?
 
 				handleTouchMoveRotate(event);
 
@@ -28897,8 +28883,8 @@ var OrbitControls = function (object, domElement) {
 
 			case 2: // two-fingered touch: dolly-pan
 
-				if (scope.enableZoom === false && scope.enablePan === false) return;
-				if (state !== STATE.TOUCH_DOLLY_PAN) return; // is this needed?
+				if (scope.enableZoom === false && scope.enablePan === false) { return; }
+				if (state !== STATE.TOUCH_DOLLY_PAN) { return; } // is this needed?
 
 				handleTouchMoveDollyPan(event);
 
@@ -28918,9 +28904,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onTouchEnd(event) {
 
-		if (scope.enabled === false) return;
-
-		handleTouchEnd(event);
+		if (scope.enabled === false) { return; }
 
 		if (scope.isActive) {
 			touchEndEvent.event = event;
@@ -28935,7 +28919,7 @@ var OrbitControls = function (object, domElement) {
 
 	function onContextMenu(event) {
 
-		if (scope.enabled === false) return;
+		if (scope.enabled === false) { return; }
 
 		event.preventDefault();
 
@@ -29087,6 +29071,7 @@ Object.defineProperties(OrbitControls.prototype, {
 	}
 
 });
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var OrthographicTrackballControls = function ( object, domElement ) {
@@ -55223,7 +55208,6 @@ DDSLoader.parse = function ( buffer, loadMipmaps ) {
 
 	var DDSD_MIPMAPCOUNT = 0x20000;
 
-
 	var DDSCAPS2_CUBEMAP = 0x200,
 		DDSCAPS2_CUBEMAP_POSITIVEX = 0x400,
 		DDSCAPS2_CUBEMAP_NEGATIVEX = 0x800,
@@ -55232,9 +55216,7 @@ DDSLoader.parse = function ( buffer, loadMipmaps ) {
 		DDSCAPS2_CUBEMAP_POSITIVEZ = 0x4000,
 		DDSCAPS2_CUBEMAP_NEGATIVEZ = 0x8000;
 
-
 	var DDPF_FOURCC = 0x4;
-
 
 	function fourCCToInt32( value ) {
 
@@ -67279,7 +67261,6 @@ RGBELoader.prototype._parser = function ( buffer ) {
 	;
 
 	var byteArray = new Uint8Array( buffer );
-
 	byteArray.pos = 0;
 	var rgbe_header_info = RGBE_ReadHeader( byteArray );
 
@@ -98378,7 +98359,6 @@ BoxHelper.prototype.setFromObject = function ( object ) {
 				vertices,
 				useVertices;
 
-
 			// ensure object is not object data
 
 			if ( object instanceof OctreeObjectData ) {
@@ -107639,8 +107619,6 @@ SpriteCanvasMaterial.prototype.clone = function () {
 
 var CanvasRenderer = function ( parameters ) {
 
-	console.log( 'CanvasRenderer', REVISION );
-
 	parameters = parameters || {};
 
 	var _this = this,
@@ -108710,8 +108688,6 @@ CSS2DObject.prototype.constructor = CSS2DObject;
 
 var CSS2DRenderer = function () {
 
-	console.log( 'CSS2DRenderer', REVISION );
-
 	var _width, _height;
 	var _widthHalf, _heightHalf;
 
@@ -108890,8 +108866,6 @@ CSS3DSprite.prototype.constructor = CSS3DSprite;
 //
 
 var CSS3DRenderer = function () {
-
-	console.log( 'CSS3DRenderer', REVISION );
 
 	var _width, _height;
 	var _widthHalf, _heightHalf;
@@ -109179,8 +109153,6 @@ var CSS3DRenderer = function () {
 
 var RaytracingRenderer = function ( parameters ) {
 
-	console.log( 'RaytracingRenderer', REVISION );
-
 	parameters = parameters || {};
 
 	var scope = this;
@@ -109457,8 +109429,6 @@ Object.assign( RaytracingRenderer.prototype, EventDispatcher.prototype );
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var SoftwareRenderer = function ( parameters ) {
-
-	console.log( 'SoftwareRenderer', REVISION );
 
 	parameters = parameters || {};
 
@@ -110976,8 +110946,6 @@ SVGObject.prototype = Object.create( Object3D.prototype );
 SVGObject.prototype.constructor = SVGObject;
 
 var SVGRenderer = function () {
-
-	console.log( 'SVGRenderer', REVISION );
 
 	var _this = this,
 		_renderData, _elements, _lights,
@@ -118301,9 +118269,6 @@ function WebXRManager( renderer ) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function WebGLRenderer( parameters ) {
-
-	// console.log( 'WebGLRenderer', REVISION );
-
 	parameters = parameters || {};
 
 	var _canvas = parameters.canvas !== undefined ? parameters.canvas : document.createElementNS( 'http://www.w3.org/1999/xhtml', 'canvas' ),
@@ -138463,8 +138428,6 @@ Object.assign( Cylindrical.prototype, {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function WebGL2Renderer( parameters ) {
-
-	console.log( 'WebGL2Renderer', REVISION );
 
 	parameters = parameters || {};
 
